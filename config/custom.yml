@@ -1,0 +1,6 @@
+app_protocol: https
+app_host: albuquerque.craigslist.org
+maximized_window: true
+driver: selenium
+sel_browser: ff
+debug_mode: true

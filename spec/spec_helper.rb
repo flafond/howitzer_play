@@ -54,3 +54,33 @@ RSpec.configure do |config|
     end
   end
 end
+
+##
+#
+# Check or clear a checkbox
+#
+# *Parameters:*
+# * +locate_by+ - A field_locator id of the checkbox to check/clear
+# * +value+ - set if truthy, clear otherwise
+#
+# *Returns:*
+# * +Object+ - Object identified by locate_by
+#
+def set_checkbox(locate_by, value)
+  value ? check(locator(locate_by)) : uncheck(locator(locate_by))
+end
+
+##
+#
+# Fill in a field only if the value is truthy; do nothing otherwise
+#
+# *Parameters:*
+# * +locate_by+ - A field_locator id of the field to populate
+# * +value+ - The value to populate the field with, IF it isn't false/nil
+#
+# *Returns:*
+# * +Object+ - Object identified by locate_by
+#
+def fill_in_if(locate_by, value)
+  fill_in field_locator(locate_by), with: value.to_s if value
+end
